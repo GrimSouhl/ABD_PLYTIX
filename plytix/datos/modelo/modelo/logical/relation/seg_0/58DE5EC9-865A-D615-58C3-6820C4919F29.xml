@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_12" directorySegmentName="seg_0" id="58DE5EC9-865A-D615-58C3-6820C4919F29">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:36:48 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>DAD4FED4-5180-8771-B2A9-A15852C85D77</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>86E2CFB8-D3F7-22AC-FC38-3CD9E04FF55F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

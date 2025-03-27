@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F87E6A28-2914-210B-5BF0-5DFE6F878BAD" name="Producto">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:18 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="GTIN" id="28E907B3-42DB-CEEC-CED7-195D525BF041">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:28 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="SKU" id="085D07E6-6C0C-D2F8-5D87-E91368865155">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:36 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ProductoNombre" id="5FD24D3D-F8DB-DD98-B0BE-5E51D3416FAE">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Miniatura" id="2A12FE76-0576-7F1F-B245-26A510B1DBCC">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:51 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="TextoCorto" id="55C517F2-799E-90CC-06F2-1C21515B6EB5">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:57 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Creado" id="44AEE08D-8ABA-9969-BC63-41061C1F6811">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:29:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Modificado" id="37F8922F-E4B3-2D11-36A7-989A53E774F5">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:29:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6CC3C59B-11E2-07E4-CD4D-15F3D8847F71" name="Producto PK">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:28:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<pk>true</pk>
+</identifier>
+</identifiers>
+</Entity>
