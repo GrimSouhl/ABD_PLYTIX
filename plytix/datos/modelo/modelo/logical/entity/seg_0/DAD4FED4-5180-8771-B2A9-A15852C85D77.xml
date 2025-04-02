@@ -82,6 +82,21 @@
 <dataTypeSize>15 CHAR</dataTypeSize>
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="CuentaId" id="2D271512-213C-D5E8-CF13-2134995A1401">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:54 UTC</createdTime>
+<generatorID>DF30405A-4BC6-42E2-61C8-7D9C43099B44</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="2E1178F3-148D-DA03-94E2-5914D24D1B4F" name="Activos PK">
@@ -92,6 +107,10 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>21C4224A-9C63-DA8D-62DB-B6261A8F18B6</attributeRef>
+<attributeRef>2D271512-213C-D5E8-CF13-2134995A1401</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

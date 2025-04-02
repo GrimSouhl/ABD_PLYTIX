@@ -80,6 +80,37 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="UsuarioId" id="49FED862-0E32-BBD2-3A60-AE45D8AD661D">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:41 UTC</createdTime>
+<generatorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>B4ED7C7D-FA47-67CC-09AD-05C99DC10FA7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PlanId" id="144C07F4-22C2-4EC7-C410-DEF9166E729B">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:15:02 UTC</createdTime>
+<generatorID>564AB284-C0B8-FFCF-D18B-7254A6F532B7</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>5A6C0122-B2C8-75BF-C9BC-F3F6D93D9130</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="EA2D7709-4DE0-840F-834D-066E4D2CC0E8" name="Cuenta PK">
@@ -90,6 +121,9 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

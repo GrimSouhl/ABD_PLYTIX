@@ -81,6 +81,37 @@
 <dataTypeSize>15 CHAR</dataTypeSize>
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="CuentaId" id="8614CD3E-54DA-7B41-2702-973B66FF050F">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:54 UTC</createdTime>
+<generatorID>E6F527C8-D820-1FD7-0316-AC2183655BDA</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CuentaId1" id="A3A467D9-B471-FF73-3E86-F9A836AA6B49">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:54 UTC</createdTime>
+<generatorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="139DC138-BF66-AB55-A0DB-7961B0F0585B" name="Usuario PK">
@@ -91,6 +122,10 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>B4ED7C7D-FA47-67CC-09AD-05C99DC10FA7</attributeRef>
+<attributeRef>8614CD3E-54DA-7B41-2702-973B66FF050F</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

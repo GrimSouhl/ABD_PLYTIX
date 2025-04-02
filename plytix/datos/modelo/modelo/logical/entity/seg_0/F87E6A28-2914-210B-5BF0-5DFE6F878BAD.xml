@@ -109,6 +109,21 @@
 <dataTypeSize>15 CHAR</dataTypeSize>
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="CuentaId" id="5869B245-ED8B-8754-6A25-D7F44959EF7B">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:54 UTC</createdTime>
+<generatorID>F8741FCF-17F0-742A-7155-10443EB2EC5A</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="6CC3C59B-11E2-07E4-CD4D-15F3D8847F71" name="Producto PK">
@@ -119,6 +134,10 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>28E907B3-42DB-CEEC-CED7-195D525BF041</attributeRef>
+<attributeRef>5869B245-ED8B-8754-6A25-D7F44959EF7B</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

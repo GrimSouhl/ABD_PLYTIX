@@ -129,6 +129,9 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>5A6C0122-B2C8-75BF-C9BC-F3F6D93D9130</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

@@ -28,6 +28,51 @@
 <dataTypeSize>15 CHAR</dataTypeSize>
 <ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="GTIN" id="F1E90E0A-6B91-BD57-5EC9-4645DBE270BA">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:24 UTC</createdTime>
+<generatorID>C6CF8C9C-2224-C17B-4C57-C6AA5F0F82A5</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>28E907B3-42DB-CEEC-CED7-195D525BF041</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CuentaId" id="6D3B2DCD-CF0D-A21A-BF69-9B81BB3C3544">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:54 UTC</createdTime>
+<generatorID>C6CF8C9C-2224-C17B-4C57-C6AA5F0F82A5</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>5869B245-ED8B-8754-6A25-D7F44959EF7B</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AtributosId" id="696CC737-155B-8DF4-23AC-F94F0552E77F">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:15:40 UTC</createdTime>
+<generatorID>8AFE96DC-4F47-75CE-AD31-BCFE3E182190</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+</engineerTo>
+<referedAttribute>E037A44F-B2A6-6706-FADE-5DEC5E0614D0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="2049DE6A-5604-E5DF-2299-C1042AB5BF1F" name="Atributos_Producto PK">
@@ -38,6 +83,11 @@
 <item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>F1E90E0A-6B91-BD57-5EC9-4645DBE270BA</attributeRef>
+<attributeRef>6D3B2DCD-CF0D-A21A-BF69-9B81BB3C3544</attributeRef>
+<attributeRef>696CC737-155B-8DF4-23AC-F94F0552E77F</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>
