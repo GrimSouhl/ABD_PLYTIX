@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6D9E6799-E3E3-1A13-4639-FFDAE8E6C6E8" name="Categoria">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>2D46528E-4372-E25A-B8CF-BB48E1092A2D</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CategoriaId" id="F4BEBA86-6C7C-968D-2CB2-FB0C09F093E8">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>76253851-B5DC-0881-A355-AA5E524F1068</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CategoriaNombre" id="656766BD-FFA3-71E5-0BF3-A292A1B71EF8">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>445CD071-1C14-C447-ADDA-8293287DCF86</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="02631A48-C1D7-1860-92B5-2D99E3E60C09" name="Categoria_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>FF5864A5-85EE-7B3C-38EB-5F85D1B40E92</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F4BEBA86-6C7C-968D-2CB2-FB0C09F093E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3299F5C-BB78-2A2D-F4AC-B886A87DF913" name="Categoria_Cuenta_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>B5CED4E2-E459-ABA4-A544-7C877E681F39</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>

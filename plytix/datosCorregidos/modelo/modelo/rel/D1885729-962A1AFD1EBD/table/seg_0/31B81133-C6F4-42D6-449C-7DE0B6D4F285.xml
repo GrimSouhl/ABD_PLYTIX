@@ -1,0 +1,197 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31B81133-C6F4-42D6-449C-7DE0B6D4F285" name="Cuenta">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>66855188-19DB-8F79-229C-AC7C1CBB45FB</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CuentaId" id="540E0192-E1E5-FE5B-6E3B-67600EB225E5">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NombreCuenta" id="CBA8DFE9-B07C-9713-4950-8B45F016A433">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>6CB40187-0256-DDC3-3540-B65B29F453CD</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DireccionFiscal" id="6FBBAA2E-A821-D419-633E-6D4A2C9BDBF3">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>3F9E9407-A2C9-732D-98FE-685A76B2BC1B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NIFCuenta" id="AB8564F7-ED7B-F431-5D26-AE4126B22FB8">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>B2C027A3-7C2A-9316-0954-6B2038A2E35F</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="FechaAlta" id="F2C9398B-7695-8DB4-9A23-3CE2BFF6169F">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>F03DF87A-AC32-29C7-CAAA-F87F51A10F0A</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_UsuarioId" id="F797FBB6-3188-53CE-127E-857B903E302F">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>49FED862-0E32-BBD2-3A60-AE45D8AD661D</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="831398E5-58A7-8268-360B-FFD556F3D471" referredColumn="2ED5C1EE-5569-C506-3E80-E65FB5681207"/>
+</associations>
+</Column>
+<Column name="Plan_PlanId" id="61FDCA25-7977-0221-6A79-3ADA1AA9C1EF">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>144C07F4-22C2-4EC7-C410-DEF9166E729B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4EE73086-09E3-A08E-716B-A62290870021" referredColumn="04535CE1-67EF-C665-DB84-C89085DC1803"/>
+</associations>
+</Column>
+<Column name="Usuario_Cuenta_CuentaId2" id="D52547FD-968F-127A-C212-DE43C4A5B42B">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>93D6E2BD-E57B-738C-0289-342D6F0FA05D</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_Cuenta_CuentaId" id="D086E71E-4EA5-B939-2B3D-FC06FD8C3351">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 08:03:53 UTC</createdTime>
+<generatorID>64C208FE-A8AD-8A4F-BDDB-6BE1EBFEC3E6</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="831398E5-58A7-8268-360B-FFD556F3D471" referredColumn="281AC3CA-77D4-7CEB-7F04-695F01EF2036"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EF8679ED-B5B4-180A-289C-2C1BC5E7957F" name="Cuenta_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>EA2D7709-4DE0-840F-834D-066E4D2CC0E8</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="540E0192-E1E5-FE5B-6E3B-67600EB225E5"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B593D04E-C90C-7620-1912-270BFE54197D" name="Cuenta__IDX">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="F797FBB6-3188-53CE-127E-857B903E302F"/>
+<colUsage columnID="D52547FD-968F-127A-C212-DE43C4A5B42B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4DF1FB42-6145-B9C7-DB52-07F969955C69" name="Cuenta__IDX">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 08:51:07 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="F797FBB6-3188-53CE-127E-857B903E302F"/>
+<colUsage columnID="D086E71E-4EA5-B939-2B3D-FC06FD8C3351"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F888CB6D-AA56-C4D7-3E5B-DEF235316999" name="Cuenta_Plan_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>564AB284-C0B8-FFCF-D18B-7254A6F532B7</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61FDCA25-7977-0221-6A79-3ADA1AA9C1EF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="608E48EE-7056-62A1-F708-C6BE86D359C0" name="Cuenta_Usuario_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-03 12:08:50 UTC</createdTime>
+<generatorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F797FBB6-3188-53CE-127E-857B903E302F"/>
+<colUsage columnID="D086E71E-4EA5-B939-2B3D-FC06FD8C3351"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

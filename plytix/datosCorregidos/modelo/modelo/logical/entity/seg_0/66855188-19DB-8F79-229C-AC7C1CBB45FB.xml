@@ -1,0 +1,172 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="66855188-19DB-8F79-229C-AC7C1CBB45FB" name="Cuenta">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:10:41 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CuentaId" id="32462B99-42A3-F5F1-BB9F-2F06F9531F2E">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:10:57 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NombreCuenta" id="6CB40187-0256-DDC3-3540-B65B29F453CD">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:11:34 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DireccionFiscal" id="3F9E9407-A2C9-732D-98FE-685A76B2BC1B">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:12:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NIFCuenta" id="B2C027A3-7C2A-9316-0954-6B2038A2E35F">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:13:08 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FechaAlta" id="F03DF87A-AC32-29C7-CAAA-F87F51A10F0A">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:13:40 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario UsId" id="49FED862-0E32-BBD2-3A60-AE45D8AD661D">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:14:41 UTC</createdTime>
+<generatorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>B4ED7C7D-FA47-67CC-09AD-05C99DC10FA7</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Plan PlanId" id="144C07F4-22C2-4EC7-C410-DEF9166E729B">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-04-02 07:15:02 UTC</createdTime>
+<generatorID>564AB284-C0B8-FFCF-D18B-7254A6F532B7</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<referedAttribute>5A6C0122-B2C8-75BF-C9BC-F3F6D93D9130</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cuenta CId1" id="64C208FE-A8AD-8A4F-BDDB-6BE1EBFEC3E6">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 08:03:38 UTC</createdTime>
+<generatorID>DADAF78D-A449-0A7D-1788-3FD5A331B35B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>8614CD3E-54DA-7B41-2702-973B66FF050F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Usuario Cuenta CuentaId2" id="06F7879B-01E0-A4BB-BDDA-B275BE88B23E">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 08:50:51 UTC</createdTime>
+<generatorID>D52547FD-968F-127A-C212-DE43C4A5B42B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="EA2D7709-4DE0-840F-834D-066E4D2CC0E8" name="Cuenta PK">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:11:25 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

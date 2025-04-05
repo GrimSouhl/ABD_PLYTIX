@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="159D407C-BDF2-C2D9-C94A-4DB6EF4EC587" name="Activos">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>DAD4FED4-5180-8771-B2A9-A15852C85D77</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ActivosId" id="4626298B-5421-10DE-B410-7C02BBFC640B">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>21C4224A-9C63-DA8D-62DB-B6261A8F18B6</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ActivosNombre" id="561C83FC-F064-9134-5131-D51077CB87A7">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>B5853A6C-0A78-DC6A-8E63-A7A378D1D9E9</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tamanyo" id="040F8181-D8C2-6F53-4029-7029A43D4524">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>9F59FC7A-850D-E76F-5E6D-306507991DB5</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ActivosTipo" id="59C1D559-326C-1395-A157-91E40DBC6160">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>0E967557-FA27-0185-BED3-71F0D3105FE4</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="URL" id="F32ADDD0-489E-AA4A-11E0-C8F8EF04083D">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>A96A4E8B-6241-9E9E-9F23-21821A3AF185</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cuenta_CuentaId" id="FF842553-83ED-F88C-F4ED-263F6B1E4C1E">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>2D271512-213C-D5E8-CF13-2134995A1401</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="EC3053A7-6B5F-3348-B366-AAE252A74AD4" referredColumn="540E0192-E1E5-FE5B-6E3B-67600EB225E5"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5AB4D94A-6030-0CA4-E049-F62F28DB7B84" name="Activos_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>2E1178F3-148D-DA03-94E2-5914D24D1B4F</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4626298B-5421-10DE-B410-7C02BBFC640B"/>
+<colUsage columnID="FF842553-83ED-F88C-F4ED-263F6B1E4C1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DC1F5093-D840-2146-DD2D-12250D4EE6A5" name="Activos_Cuenta_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>DF30405A-4BC6-42E2-61C8-7D9C43099B44</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FF842553-83ED-F88C-F4ED-263F6B1E4C1E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

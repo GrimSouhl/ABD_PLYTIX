@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F21D9ECF-0D80-61A4-795C-7666CA4BF4ED" name="Activos">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>DAD4FED4-5180-8771-B2A9-A15852C85D77</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ActivosId" id="8AC1C0DD-55C4-FF14-C12F-C80ADD017D51">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>21C4224A-9C63-DA8D-62DB-B6261A8F18B6</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ActivosNombre" id="236AE843-A33A-603C-F3CC-AB44FF35ACEE">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>B5853A6C-0A78-DC6A-8E63-A7A378D1D9E9</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Tamanyo" id="BD874EC5-6EEE-7F30-F078-4552C807499C">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>9F59FC7A-850D-E76F-5E6D-306507991DB5</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ActivosTipo" id="E33DE348-6F1E-575A-4634-EEA3ADC3E675">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>0E967557-FA27-0185-BED3-71F0D3105FE4</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="URL" id="96B76630-2347-68F7-6E1F-0946ABF47B89">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>A96A4E8B-6241-9E9E-9F23-21821A3AF185</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B9D0A8A-6F53-0016-1A55-AB7F8FBE396E" name="Activos_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>2E1178F3-148D-DA03-94E2-5914D24D1B4F</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="9FD43616-FD72-7F62-B56F-5EC74643D1A9" name="Activos_Cuenta_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>DF30405A-4BC6-42E2-61C8-7D9C43099B44</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>

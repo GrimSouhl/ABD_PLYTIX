@@ -1,8 +1,9 @@
 --############NIVEL FÍSICO############--------
 
+-----DROP USER PLYTIX CASCADE;
 --####1.-CREACION DEL USUARIO Y TABLESPACE
-
 --TABLESPACES
+--DESDE SYSTEM
 CREATE TABLESPACE TS_PLYTIX DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\plytix.dbf' SIZE 200M AUTOEXTEND ON;
 --ALTER DATABASE DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\plytix.dbf' RESIZE 200M;
 CREATE TABLESPACE TS_INDICES DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\TS_INDICES.dbf' SIZE 50M AUTOEXTEND ON;
@@ -15,6 +16,197 @@ QUOTA 50M ON TS_INDICES;
 GRANT CONNECT, RESOURCE TO PLYTIX;
 GRANT CREATE TABLE, CREATE VIEW, CREATE MATERIALIZED VIEW TO PLYTIX;
 GRANT CREATE SEQUENCE, CREATE PROCEDURE TO PLYTIX;
+GRANT CREATE PUBLIC SYNONYM TO PLYTIX;
+GRANT CREATE SEQUENCE TO PLYTIX; --8
+
+----#####SCRIPT DE CREACION DE TALAS Y RELACIONES####-------
+--EJECUTAR DESDE PLYTIX-----
+
+-- Generado por Oracle SQL Developer Data Modeler 23.1.0.087.0806
+-- Fecha: 2025-04-03
+
+CREATE TABLE activo (
+    activoid       VARCHAR2(50 CHAR) NOT NULL,
+    activonombre   VARCHAR2(50 CHAR) NOT NULL,
+    tamanyo        VARCHAR2(50 CHAR) NOT NULL,
+    activotipo     VARCHAR2(50 CHAR),
+    url            VARCHAR2(50 CHAR),
+    cuentaid       VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT activo_pk PRIMARY KEY (activoid, cuentaid)
+);
+
+CREATE TABLE atributo (
+    atributoid      VARCHAR2(50 CHAR) NOT NULL,
+    atributonombre  VARCHAR2(50 CHAR) NOT NULL,
+    atributotipo    VARCHAR2(50 CHAR),
+    creado          VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid        VARCHAR2(50 CHAR),
+    cuentaid2       VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT atributo_pk PRIMARY KEY (atributoid)
+);
+
+CREATE TABLE atributo_producto (
+    valor                  VARCHAR2(50 CHAR) NOT NULL,
+    producto_gtin          VARCHAR2(50 CHAR) NOT NULL,
+    producto_cuentaid      VARCHAR2(50 CHAR) NOT NULL,
+    atributo_id            VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid               VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT atributo_producto_pk PRIMARY KEY (producto_gtin, producto_cuentaid, atributo_id)
+);
+
+CREATE TABLE categoria (
+    categoriaid      VARCHAR2(50 CHAR) NOT NULL,
+    categorianombre  VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid         VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT categoria_pk PRIMARY KEY (categoriaid, cuentaid)
+);
+
+CREATE TABLE categoria_activo (
+    caid       VARCHAR2(50 CHAR) NOT NULL,
+    nombreca   VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid   VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT categoria_activo_pk PRIMARY KEY (cuentaid, caid)
+);
+
+CREATE TABLE cuenta (
+    cuentaid              VARCHAR2(50 CHAR) NOT NULL,
+    nombrecuenta          VARCHAR2(50 CHAR) NOT NULL,
+    direccionfiscal       VARCHAR2(50 CHAR) NOT NULL,
+    nifcuenta             VARCHAR2(50 CHAR) NOT NULL,
+    fechaalta             DATE,
+    usuario_usuarioid     VARCHAR2(50 CHAR),
+    plan_planid           VARCHAR2(50 CHAR) NOT NULL,
+    usuario_cuentaid2     VARCHAR2(50 CHAR),
+    usuario_cuentaid      VARCHAR2(50 CHAR),
+    CONSTRAINT cuenta_pk PRIMARY KEY (cuentaid)
+);
+
+CREATE UNIQUE INDEX cuenta_usuario_idx1 ON cuenta (usuario_usuarioid ASC, usuario_cuentaid2 ASC);
+CREATE UNIQUE INDEX cuenta_usuario_idx2 ON cuenta (usuario_usuarioid ASC, usuario_cuentaid ASC);
+
+CREATE TABLE plan (
+    planid              VARCHAR2(50 CHAR) NOT NULL,
+    producto            VARCHAR2(50 CHAR) NOT NULL,
+    activo              VARCHAR2(50 CHAR) NOT NULL,
+    almacenamiento      VARCHAR2(50 CHAR) NOT NULL,
+    categoriaproducto   VARCHAR2(50 CHAR) NOT NULL,
+    categoriaactivo     VARCHAR2(50 CHAR) NOT NULL,
+    relaciones          VARCHAR2(50 CHAR) NOT NULL,
+    precio              VARCHAR2(50 CHAR) NOT NULL,
+    nombre              VARCHAR2(50 CHAR),
+    CONSTRAINT plan_pk PRIMARY KEY (planid)
+);
+
+CREATE TABLE producto (
+    gtin            VARCHAR2(50 CHAR) NOT NULL,
+    sku             CHAR(10) NOT NULL,
+    productonombre  VARCHAR2(50 CHAR) NOT NULL,
+    miniatura       VARCHAR2(50 CHAR),
+    textocorto      VARCHAR2(50 CHAR),
+    creado          VARCHAR2(50 CHAR) NOT NULL,
+    modificado      VARCHAR2(50 CHAR),
+    cuentaid        VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT producto_pk PRIMARY KEY (gtin, cuentaid)
+);
+
+CREATE TABLE relacionado (
+    relacionadonombre       VARCHAR2(50 CHAR) NOT NULL,
+    sentido                 VARCHAR2(50 CHAR),
+    producto_gtin           VARCHAR2(50 CHAR) NOT NULL,
+    producto_gtin1          VARCHAR2(50 CHAR) NOT NULL,
+    producto_cuentaid       VARCHAR2(50 CHAR) NOT NULL,
+    producto_cuentaid1      VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT relacionado_pk PRIMARY KEY (producto_gtin, producto_cuentaid, producto_gtin1, producto_cuentaid1)
+);
+
+CREATE TABLE rel_cuenta_prod (
+    producto_gtin       VARCHAR2(50 CHAR) NOT NULL,
+    producto_cuentaid   VARCHAR2(50 CHAR) NOT NULL,
+    activos_id          VARCHAR2(50 CHAR) NOT NULL,
+    activos_cuentaid    VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT rel_cuenta_prod_pk PRIMARY KEY (producto_gtin, producto_cuentaid, activos_id, activos_cuentaid)
+);
+
+CREATE TABLE rel_cuenta_plan (
+    activos_id             VARCHAR2(50 CHAR) NOT NULL,
+    activos_cuentaid       VARCHAR2(50 CHAR) NOT NULL,
+    categoria_cuentaid     VARCHAR2(50 CHAR) NOT NULL,
+    categoria_caid         VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT rel_cuenta_plan_pk PRIMARY KEY (activos_id, activos_cuentaid, categoria_cuentaid, categoria_caid)
+);
+
+CREATE TABLE rel_cat_prod (
+    categoriaid       VARCHAR2(50 CHAR) NOT NULL,
+    categoria_cuentaid VARCHAR2(50 CHAR) NOT NULL,
+    producto_gtin     VARCHAR2(50 CHAR) NOT NULL,
+    producto_cuentaid VARCHAR2(50 CHAR) NOT NULL,
+    CONSTRAINT rel_cat_prod_pk PRIMARY KEY (categoriaid, categoria_cuentaid, producto_gtin, producto_cuentaid)
+);
+
+CREATE TABLE usuario (
+    usuarioid        VARCHAR2(50 CHAR) NOT NULL,
+    nombreusuario    VARCHAR2(50 CHAR) NOT NULL,
+    avatar           VARCHAR2(50 CHAR),
+    email            VARCHAR2(50 CHAR) NOT NULL,
+    telefono         VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid         VARCHAR2(50 CHAR) NOT NULL,
+    cuentaid_alt     VARCHAR2(50 CHAR),
+    CONSTRAINT usuario_pk PRIMARY KEY (usuarioid, cuentaid)
+);
+
+CREATE UNIQUE INDEX usuario_idx ON usuario (cuentaid_alt ASC);
+
+-- Relaciones (FKs)
+
+ALTER TABLE activo
+    ADD CONSTRAINT fk_activo_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+
+ALTER TABLE atributo
+    ADD CONSTRAINT fk_atributo_cuenta1 FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+ALTER TABLE atributo
+    ADD CONSTRAINT fk_atributo_cuenta2 FOREIGN KEY (cuentaid2) REFERENCES cuenta (cuentaid);
+
+ALTER TABLE atributo_producto
+    ADD CONSTRAINT fk_attr_prod_atributo FOREIGN KEY (atributo_id) REFERENCES atributo (atributoid);
+ALTER TABLE atributo_producto
+    ADD CONSTRAINT fk_attr_prod_producto FOREIGN KEY (producto_gtin, producto_cuentaid) REFERENCES producto (gtin, cuentaid);
+
+ALTER TABLE categoria
+    ADD CONSTRAINT fk_categoria_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+
+ALTER TABLE categoria_activo
+    ADD CONSTRAINT fk_cat_activo_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+
+ALTER TABLE cuenta
+    ADD CONSTRAINT fk_cuenta_plan FOREIGN KEY (plan_planid) REFERENCES plan (planid);
+
+ALTER TABLE producto
+    ADD CONSTRAINT fk_producto_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+
+ALTER TABLE relacionado
+    ADD CONSTRAINT fk_relacionado_prod1 FOREIGN KEY (producto_gtin, producto_cuentaid) REFERENCES producto (gtin, cuentaid);
+ALTER TABLE relacionado
+    ADD CONSTRAINT fk_relacionado_prod2 FOREIGN KEY (producto_gtin1, producto_cuentaid1) REFERENCES producto (gtin, cuentaid);
+
+ALTER TABLE rel_cuenta_prod
+    ADD CONSTRAINT fk_rcp_activo FOREIGN KEY (activos_id, activos_cuentaid) REFERENCES activo (activoid, cuentaid);
+ALTER TABLE rel_cuenta_prod
+    ADD CONSTRAINT fk_rcp_producto FOREIGN KEY (producto_gtin, producto_cuentaid) REFERENCES producto (gtin, cuentaid);
+
+ALTER TABLE rel_cuenta_plan
+    ADD CONSTRAINT fk_rcplan_activo FOREIGN KEY (activos_id, activos_cuentaid) REFERENCES activo (activoid, cuentaid);
+ALTER TABLE rel_cuenta_plan
+    ADD CONSTRAINT fk_rcplan_cat_activo FOREIGN KEY (categoria_cuentaid, categoria_caid) REFERENCES categoria_activo (cuentaid, caid);
+
+ALTER TABLE rel_cat_prod
+    ADD CONSTRAINT fk_rcprod_categoria FOREIGN KEY (categoriaid, categoria_cuentaid) REFERENCES categoria (categoriaid, cuentaid);
+ALTER TABLE rel_cat_prod
+    ADD CONSTRAINT fk_rcprod_prod FOREIGN KEY (producto_gtin, producto_cuentaid) REFERENCES producto (gtin, cuentaid);
+
+ALTER TABLE usuario
+    ADD CONSTRAINT fk_usuario_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
+
+--#########################################---------
 
 --VERIFICACIONES
 SELECT TABLESPACE_NAME FROM DBA_TABLESPACES 
@@ -29,46 +221,42 @@ WHERE TABLESPACE_NAME IN ('TS_PLYTIX', 'TS_INDICES');
 
 
 --2
+
 select * from ALL_INDEXES WHERE OWNER = 'PLYTIX';
-
-ALTER INDEX ACTIVOS_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX ATRIBUTOS_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX ATRIBUTOS_PRODUCTO_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX CATEGORIA_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX CATEGORIA_ACTIVOS_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX CUENTA__IDX REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX CUENTA_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX PLAN_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX PRODUCTO_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX RELACIONADO_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX RELATION_11_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX RELATION_12_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX RELATION_6_PK REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX USUARIO__IDX REBUILD TABLESPACE TS_INDICES;
-ALTER INDEX USUARIO_PK REBUILD TABLESPACE TS_INDICES;
-
+--FUNCION QUE VA METIENDO LOAS INDEXES EN EL TABLESPACE TS_INDICES
+BEGIN
+   FOR rec IN (SELECT INDEX_NAME
+               FROM ALL_INDEXES
+               WHERE OWNER = 'PLYTIX' AND TABLESPACE_NAME IS NOT NULL) 
+   LOOP
+      EXECUTE IMMEDIATE 'ALTER INDEX PLYTIX.' || rec.INDEX_NAME || ' REBUILD TABLESPACE TS_INDICES';
+   END LOOP;
+END;
+/
+--CHECKEAMOS
 select * from ALL_INDEXES WHERE TABLESPACE_NAME = 'TS_INDICES';
 
-
---3
+--3 IMPORTACION DE DATOS
 
     
 --4
---PLYTIX
-create or replace directory directorio_ext as 'C:\app\alumnos\admin\orcl\dpdump';
 
-SELECT * FROM ALL_DIRECTORIES;
+--DESDE SYSTEM:
+create or replace directory directorio_ext as 'C:\app\alumnos\admin\orcl\dpdump';
 
 grant read, write on directory directorio_ext to PLYTIX;
 
+SELECT * FROM ALL_DIRECTORIES;
 
+
+--DESDE PLYTIX:
 CREATE table productos_ext
  ( 
-    SKU CHAR(10),
+    SKU CHAR(50),
     NOMBRE VARCHAR2(50),
     TEXTOCORTO VARCHAR2(50),
     CREADO VARCHAR2(50),
-    CUENTA_ID VARCHAR2(15)
+    CUENTA_ID VARCHAR2(50)
 )
 ORGANIZATION EXTERNAL (
      TYPE ORACLE_LOADER
@@ -81,23 +269,24 @@ ORGANIZATION EXTERNAL (
          OPTIONALLY ENCLOSED BY '"'
          MISSING FIELD VALUES ARE NULL
              (
-                 SKU CHAR(10),
+                 SKU CHAR(50),
                  NOMBRE CHAR(50),
                  TEXTOCORTO CHAR(50),
-                 creado CHAR(10) DATE_FORMAT DATE MASK "dd/mm/yyyy",
-                 cuenta_id CHAR(10)
+                 creado CHAR(50) DATE_FORMAT DATE MASK "dd/mm/yyyy",
+                 cuenta_id CHAR(50)
              )
          )
      LOCATION ('productos.csv')
 );
 
+--COMPROBAMOS QUE LA TABLA SE CREO Y TIENE DATOS:
 SELECT * FROM productos_ext;
 
 SELECT TABLE_NAME FROM ALL_EXTERNAL_TABLES;
 
 SELECT * FROM user_external_tables where table_name = 'PRODUCTOS_EXT';
 
---5
+--5 INDICES--
 
 CREATE INDEX idx_usuario_email ON USUARIO(email) TABLESPACE TS_INDICES;
 
@@ -106,7 +295,7 @@ CREATE INDEX idx_usuario_telefono ON USUARIO(telefono) TABLESPACE TS_INDICES;
 SELECT * FROM ALL_INDEXES WHERE TABLESPACE_NAME= 'TS_INDICES';
 
 CREATE INDEX idx_usuario_nombre_upper 
-ON USUARIO(UPPER(nombreu)) 
+ON USUARIO(UPPER(nombreusuario)) 
 TABLESPACE TS_INDICES;
 
 --¿En qué tablespace reside la tabla USUARIO? ¿Y los índices? (compruébelo consultando el diccionario de datos)
@@ -115,10 +304,11 @@ select * from user_indexes where table_name = 'USUARIO';
 
 
 CREATE BITMAP INDEX idx_usuario_tipo_cuenta 
-ON USUARIO(CUENTA_CUENTAID2) 
+ON USUARIO(CUENTAID) 
 TABLESPACE TS_INDICES;
 
---6
+
+--6 VISTA MARERIALLIZADA
 
 CREATE MATERIALIZED VIEW VM_PRODUCTOS
 TABLESPACE TS_PLYTIX
@@ -129,8 +319,38 @@ NEXT TRUNC(SYSDATE + 1)
 AS
 SELECT * FROM PRODUCTO;
 
---7
+--7 SINÓNIMOS--
 
-GRANT CREATE PUBLIC SYNONYM TO PLYTIX;
-CREATE PUBLIC SYNONYM S_PRODUCTOS FOR VM_PRODUCTOS;
+
+CREATE OR REPLACE PUBLIC SYNONYM S_PRODUCTOS FOR VM_PRODUCTOS;
 SELECT * FROM S_PRODUCTOS;
+
+
+--8--
+
+--GRANT CREATE SEQUENCE TO PLYTIX;
+
+CREATE SEQUENCE SEQ_PRODUCTOS
+    START WITH 1
+    INCREMENT BY 1
+    NOCACHE --NO GUARDA EN CACHE
+    NOCYCLE; --NO SE REINICIA AL LLEGAR AL MAX
+    
+CREATE OR REPLACE TRIGGER TR_PRODUCTOS
+BEFORE INSERT ON PRODUCTO
+FOR EACH ROW
+BEGIN
+    IF :new.GTIN IS NULL THEN
+        :new.GTIN := SEQ_PRODUCTOS.NEXTVAL;
+    END IF;
+END TR_PRODUCTOS;
+/
+
+
+INSERT INTO PRODUCTO (GTIN,SKU, PRODUCTONOMBRE,MINIATURA, TEXTOCORTO, CREADO, MODIFICADO, CUENTAID)
+SELECT GTIN,SKU,PRODUCTONOMBRE, MINIATURA,TEXTOCORTO,CREADO,MODIFICADO, CUENTAID
+FROM S_PRODUCTOS;
+
+SELECT * FROM S_PRODUCTOS;
+
+

@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="99716758-8359-7490-FED5-47C146752E17" name="Atributos">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:03 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="AtributosId" id="E037A44F-B2A6-6706-FADE-5DEC5E0614D0">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:13 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AtributosNombre" id="AD02546A-CF9F-F0D5-EF1E-61299324ABD6">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:23 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="AtributosTipo" id="5EE30FEC-29B0-FD8E-F790-845621E3091A">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Creado" id="18220384-C79B-9FC0-024A-09CE26430283">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:31 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CuentaId" id="5D191A0D-D3C0-C295-15CD-1A552DB05A41">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-03 11:56:14 UTC</createdTime>
+<generatorID>191A3600-842C-71F2-7F3F-8B937DC3462A</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<referedAttribute>32462B99-42A3-F5F1-BB9F-2F06F9531F2E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="53E66681-4362-86D2-75B9-8AAC0BC2C93A" name="Atributos PK">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:26:22 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E037A44F-B2A6-6706-FADE-5DEC5E0614D0</attributeRef>
+<attributeRef>5D191A0D-D3C0-C295-15CD-1A552DB05A41</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

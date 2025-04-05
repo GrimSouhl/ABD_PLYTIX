@@ -1,0 +1,101 @@
+ID;NOMBRE;DIRECCIONFISCAL;NIF;FECHAALTA;USUARIO_ID;PLAN_ID
+1;Travel World Agency;Calle Serrano, 22, Madrid;V7235810;16/03/2025;;1
+2;Tech Innovators Inc.;Avenida Diagonal, 20, Barcelona;K3574668;13/12/2020;;4
+3;Bright Future Education;Calle Gran Vía, 28, Madrid;D7411123;01/08/2024;;3
+4;Elite Fitness Club;Calle Serrano, 22, Madrid;L7393738;07/02/2021;;1
+5;Bright Future Education;Calle Gran Vía, 28, Madrid;V1876383;22/02/2025;;4
+6;Luxury Living Estates;Calle de Alcalá, 45, Madrid;U5973630;05/09/2022;;3
+7;Creative Media Agency;Calle Serrano, 22, Madrid;F4299726;06/06/2020;;3
+8;Health First Medical;Calle Gran Vía, 28, Madrid;P2840144;06/05/2023;;1
+9;Global Trade Corp.;Calle Gran Vía, 28, Madrid;A7066973;28/11/2024;;2
+10;Luxury Living Estates;Calle Gran Vía, 28, Madrid;M7360019;12/10/2024;;1
+11;Creative Media Agency;Calle Gran Vía, 28, Madrid;F2234134;28/05/2024;;4
+12;Future Finance Group;Calle Uría, 3, Oviedo;A0461486;05/07/2021;;4
+13;SecureIT Services;Calle Larios, 10, Málaga;G2467937;19/08/2024;;1
+14;Bright Future Education;Calle de Alcalá, 45, Madrid;J5462411;09/01/2022;;1
+15;Fashion Forward Boutique;Calle Uría, 3, Oviedo;K1575025;04/10/2020;;1
+16;Clean Water Initiative;Calle Serrano, 22, Madrid;N2982448;02/02/2023;;3
+17;Luxury Living Estates;Avenida Diagonal, 20, Barcelona;R5788502;06/06/2023;;2
+18;Travel World Agency;Calle Uría, 3, Oviedo;R5636771;01/02/2023;;1
+19;Bright Future Education;Paseo de Gracia, 15, Barcelona;A9476104;13/03/2020;;1
+20;Digital Marketing Pros;Paseo de Gracia, 15, Barcelona;C0387887;08/05/2021;;2
+21;Tech Innovators Inc.;Calle Mayor, 5, Valencia;H7520094;27/09/2024;;4
+22;Creative Media Agency;Calle Gran Vía, 28, Madrid;V3302898;22/03/2022;;2
+23;Fresh Foods Market;Calle Serrano, 22, Madrid;C0161122;20/02/2025;;2
+24;SecureIT Services;Calle Serrano, 22, Madrid;J5805392;06/05/2021;;4
+25;Clean Water Initiative;Avenida de la Constitución, 12, Sevilla;A1381742;07/09/2021;;4
+26;Urban Development Co.;Paseo de Gracia, 15, Barcelona;J2431831;09/12/2021;;3
+27;Smart Home Technologies;Calle Serrano, 22, Madrid;Q8824456;21/03/2023;;1
+28;Digital Marketing Pros;Calle Serrano, 22, Madrid;E9402003;08/09/2024;;3
+29;Urban Development Co.;Calle de Alcalá, 45, Madrid;A9867815;13/09/2020;;4
+30;Creative Media Agency;Calle Larios, 10, Málaga;U9589848;09/04/2022;;3
+31;Clean Water Initiative;Calle Larios, 10, Málaga;R1647951;14/10/2024;;4
+32;Global Trade Corp.;Calle Gran Vía, 28, Madrid;B6235055;17/04/2024;;3
+33;Future Finance Group;Avenida de la Constitución, 12, Sevilla;P8401310;11/02/2021;;2
+34;Smart Home Technologies;Calle Gran Vía, 28, Madrid;E1021060;22/10/2022;;1
+35;Global Trade Corp.;Avenida de la Constitución, 12, Sevilla;L3989512;22/12/2020;;3
+36;Fresh Foods Market;Calle de Alcalá, 45, Madrid;G0617931;18/11/2024;;4
+37;Global Trade Corp.;Calle Gran Vía, 28, Madrid;E6476197;01/03/2022;;4
+38;Health First Medical;Avenida de la Constitución, 12, Sevilla;P0308101;03/02/2020;;4
+39;Future Finance Group;Avenida de la Constitución, 12, Sevilla;Q5840851;27/03/2024;;1
+40;Travel World Agency;Paseo de Gracia, 15, Barcelona;E9931977;31/12/2020;;1
+41;SecureIT Services;Paseo de Gracia, 15, Barcelona;G9862224;12/10/2021;;3
+42;Auto Experts Garage;Calle Larios, 10, Málaga;K1842986;29/03/2022;;1
+43;Creative Media Agency;Calle Larios, 10, Málaga;W8804894;07/03/2020;;2
+44;Travel World Agency;Avenida Diagonal, 20, Barcelona;L7127457;05/06/2022;;4
+45;Bright Future Education;Calle Mayor, 5, Valencia;R3627862;12/08/2020;;3
+46;Digital Marketing Pros;Calle Colón, 8, Valencia;P4885531;30/11/2022;;4
+47;Fresh Foods Market;Calle Mayor, 5, Valencia;M1345231;24/12/2024;;4
+48;Auto Experts Garage;Calle Colón, 8, Valencia;D7233379;28/06/2023;;2
+49;Smart Home Technologies;Calle Colón, 8, Valencia;F3899466;01/11/2023;;2
+50;Elite Fitness Club;Paseo de Gracia, 15, Barcelona;S9613722;07/01/2025;;3
+51;Fresh Foods Market;Calle Uría, 3, Oviedo;D7324463;04/02/2024;;3
+52;Green Energy Solutions;Paseo de Gracia, 15, Barcelona;G1288467;30/06/2020;;4
+53;Health First Medical;Calle Colón, 8, Valencia;F1648211;01/09/2022;;1
+54;Health First Medical;Calle Mayor, 5, Valencia;N9805933;15/08/2021;;1
+55;Luxury Living Estates;Avenida de la Constitución, 12, Sevilla;V3667580;26/12/2023;;3
+56;Creative Media Agency;Calle Uría, 3, Oviedo;A1691704;27/05/2023;;3
+57;Clean Water Initiative;Calle Larios, 10, Málaga;P5911480;30/08/2023;;1
+58;Auto Experts Garage;Avenida de la Constitución, 12, Sevilla;M6366356;02/03/2025;;4
+59;Fashion Forward Boutique;Calle Colón, 8, Valencia;C9474308;26/12/2024;;4
+60;Eco-Friendly Products;Avenida Diagonal, 20, Barcelona;W4632635;23/09/2022;;2
+61;Urban Development Co.;Calle Serrano, 22, Madrid;M0081808;02/08/2021;;3
+62;Green Energy Solutions;Paseo de Gracia, 15, Barcelona;R9530747;27/01/2022;;2
+63;Digital Marketing Pros;Avenida Diagonal, 20, Barcelona;V6714460;03/04/2023;;3
+64;Elite Fitness Club;Avenida Diagonal, 20, Barcelona;V4306785;16/08/2023;;1
+65;Eco-Friendly Products;Calle Colón, 8, Valencia;M0871781;25/10/2024;;1
+66;Global Trade Corp.;Calle Colón, 8, Valencia;U1495106;10/12/2020;;3
+67;Future Finance Group;Calle Serrano, 22, Madrid;U6984280;03/11/2021;;4
+68;Health First Medical;Calle Serrano, 22, Madrid;M7705539;02/03/2024;;1
+69;Bright Future Education;Avenida Diagonal, 20, Barcelona;H8228526;17/01/2020;;2
+70;Auto Experts Garage;Calle Mayor, 5, Valencia;M8101059;19/07/2023;;3
+71;Health First Medical;Calle Colón, 8, Valencia;U1715228;07/04/2022;;4
+72;Smart Home Technologies;Calle Uría, 3, Oviedo;U6916574;28/09/2024;;2
+73;Fresh Foods Market;Calle Mayor, 5, Valencia;V8562233;23/11/2020;;3
+74;Fresh Foods Market;Calle de Alcalá, 45, Madrid;P4907175;03/06/2021;;1
+75;Tech Innovators Inc.;Calle Gran Vía, 28, Madrid;S5218224;02/10/2023;;1
+76;SecureIT Services;Calle Uría, 3, Oviedo;S7783005;29/04/2022;;4
+77;Tech Innovators Inc.;Calle Serrano, 22, Madrid;V1306650;06/03/2021;;2
+78;Health First Medical;Calle Mayor, 5, Valencia;U8893431;24/08/2021;;1
+79;Urban Development Co.;Paseo de Gracia, 15, Barcelona;U7016716;04/01/2025;;3
+80;Eco-Friendly Products;Paseo de Gracia, 15, Barcelona;L8052984;29/11/2022;;1
+81;Green Energy Solutions;Paseo de Gracia, 15, Barcelona;D2777329;04/11/2021;;4
+82;Eco-Friendly Products;Calle Gran Vía, 28, Madrid;C2345157;14/06/2021;;2
+83;Smart Home Technologies;Avenida de la Constitución, 12, Sevilla;V4562337;04/11/2023;;1
+84;Green Energy Solutions;Avenida Diagonal, 20, Barcelona;C6839292;29/06/2020;;3
+85;Health First Medical;Calle Larios, 10, Málaga;C3859795;30/10/2024;;1
+86;SecureIT Services;Calle de Alcalá, 45, Madrid;M2701424;11/07/2020;;4
+87;Travel World Agency;Avenida de la Constitución, 12, Sevilla;G6996840;14/01/2025;;2
+88;Travel World Agency;Calle Serrano, 22, Madrid;R9715792;09/06/2023;;3
+89;Creative Media Agency;Calle Uría, 3, Oviedo;J2302678;13/12/2024;;2
+90;Auto Experts Garage;Calle Gran Vía, 28, Madrid;K8272395;18/07/2021;;1
+91;Urban Development Co.;Calle Colón, 8, Valencia;R5723629;05/03/2025;;4
+92;Clean Water Initiative;Calle Gran Vía, 28, Madrid;L2875426;24/02/2021;;3
+93;SecureIT Services;Calle Uría, 3, Oviedo;M2363725;30/08/2022;;1
+94;Digital Marketing Pros;Calle Serrano, 22, Madrid;W5816604;23/02/2020;;2
+95;Fresh Foods Market;Calle Mayor, 5, Valencia;V0667415;07/12/2020;;1
+96;Bright Future Education;Calle Mayor, 5, Valencia;W0649640;08/12/2021;;1
+97;Health First Medical;Calle Larios, 10, Málaga;S6333699;16/04/2021;;4
+98;Luxury Living Estates;Calle Gran Vía, 28, Madrid;G5195031;10/02/2022;;2
+99;Eco-Friendly Products;Calle de Alcalá, 45, Madrid;S5182179;21/01/2022;;1
+100;Digital Marketing Pros;Avenida Diagonal, 20, Barcelona;V7437021;18/01/2023;;4

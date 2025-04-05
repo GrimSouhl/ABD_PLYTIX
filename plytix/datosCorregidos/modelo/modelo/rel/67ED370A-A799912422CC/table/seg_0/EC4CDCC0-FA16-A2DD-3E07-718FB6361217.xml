@@ -1,0 +1,35 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="EC4CDCC0-FA16-A2DD-3E07-718FB6361217" name="Relation_12">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="013BC5FF-6FA2-2173-1E88-814BDD7F6223" name="Relation_12_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="61AE3B02-E31B-9ED1-3D2C-993BF50ADA9B" name="Relation_12_Activos_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>58DE5EC9-865A-D615-58C3-6820C4919F29</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+<ind_PK_UK id="63157AAD-7FC2-CD9B-85CC-02D94C829E11" name="Relation_12_Categoria_Activos_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-03-31 11:21:42 UTC</createdTime>
+<generatorID>58DE5EC9-865A-D615-58C3-6820C4919F29</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+</ind_PK_UK>
+</indexes>
+</Table>

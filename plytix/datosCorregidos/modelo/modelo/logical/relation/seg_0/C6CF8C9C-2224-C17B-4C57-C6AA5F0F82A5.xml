@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Atributos Producto Producto FK" directorySegmentName="seg_0" id="C6CF8C9C-2224-C17B-4C57-C6AA5F0F82A5">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:32:15 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<sourcePk>6CC3C59B-11E2-07E4-CD4D-15F3D8847F71</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>F87E6A28-2914-210B-5BF0-5DFE6F878BAD</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F0BC43AF-1DE8-D2BE-237C-AD18AC1E798F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

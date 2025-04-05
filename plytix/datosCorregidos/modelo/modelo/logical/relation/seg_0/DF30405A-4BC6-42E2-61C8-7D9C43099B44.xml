@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Activos Cuenta FK" directorySegmentName="seg_0" id="DF30405A-4BC6-42E2-61C8-7D9C43099B44">
+<createdBy>Glitched</createdBy>
+<createdTime>2025-02-25 08:35:42 UTC</createdTime>
+<ownerDesignName>modelo</ownerDesignName>
+<engineerTo>
+<item key="67ED370A-7DA6-B693-7B17-A799912422CC" value="true"/>
+<item key="D1885729-9E2C-380F-D5B9-962A1AFD1EBD" value="true"/>
+</engineerTo>
+<sourcePk>EA2D7709-4DE0-840F-834D-066E4D2CC0E8</sourcePk>
+<identifying>true</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>66855188-19DB-8F79-229C-AC7C1CBB45FB</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>DAD4FED4-5180-8771-B2A9-A15852C85D77</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

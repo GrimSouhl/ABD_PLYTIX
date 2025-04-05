@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9E6520C9-0165-79E4-BD0B-2837EB85F007" name="Relacionado">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>D070F99E-0220-298E-1298-8079D10D725D</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="RelacionadoNombre" id="32D97B89-363E-CEFC-B247-A199E3560726">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>2DE67E43-FB55-1B97-9CCC-A713ABA9CCD2</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Sentido" id="A543E86F-AB17-7CB4-D6E6-BAE36CD9F887">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>99235736-B089-664E-19DB-87B13929C8FB</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 CHAR</dataTypeSize>
+<ownDataTypeParameters>20 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Producto_GTIN" id="73701B0D-B2A2-CA94-7118-0D7A7D5C3DF2">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>95600614-3362-2D21-2ADC-A3264A47A3EE</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DA0E339C-09AD-79F8-8A9C-15BBAEB2C78F" referredColumn="8A34AAA1-0F2C-BCCF-8B08-51F42C2F9A67"/>
+</associations>
+</Column>
+<Column name="Producto_GTIN2" id="9997225A-3E4B-0786-CFE9-CD67C846DC3F">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>58F38C05-C393-8F9E-6AEC-3180014B91C3</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A940D39-A6F4-C57D-388A-47FB2857E580" referredColumn="8A34AAA1-0F2C-BCCF-8B08-51F42C2F9A67"/>
+</associations>
+</Column>
+<Column name="Producto_Cuenta_CuentaId" id="8EA9E84B-EE97-226C-6028-D1BA402E8755">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>BAE2B2EF-EAAF-4647-F5AD-113EB5614FCC</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DA0E339C-09AD-79F8-8A9C-15BBAEB2C78F" referredColumn="A7990346-D4A8-A4BD-D2B7-C31833C476CF"/>
+</associations>
+</Column>
+<Column name="Producto_Cuenta_CuentaId2" id="E4397F4E-1675-8A38-F744-146365424F6F">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>24CAF879-57C1-C2FF-9BD1-10F9B4D7E10B</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15 CHAR</dataTypeSize>
+<ownDataTypeParameters>15 CHAR,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9A940D39-A6F4-C57D-388A-47FB2857E580" referredColumn="A7990346-D4A8-A4BD-D2B7-C31833C476CF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3899B423-51DB-E03A-CAB6-DF32FBBE671C" name="Relacionado_PK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>39C09520-ED84-4695-2B1C-D9CB226DD82A</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73701B0D-B2A2-CA94-7118-0D7A7D5C3DF2"/>
+<colUsage columnID="8EA9E84B-EE97-226C-6028-D1BA402E8755"/>
+<colUsage columnID="9997225A-3E4B-0786-CFE9-CD67C846DC3F"/>
+<colUsage columnID="E4397F4E-1675-8A38-F744-146365424F6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DAE6135D-D7DD-BBD0-541D-0F6A22A04ECE" name="Relacionado_Producto_FK">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>5BFBF798-3EB7-033C-4573-BEA1070447CE</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="73701B0D-B2A2-CA94-7118-0D7A7D5C3DF2"/>
+<colUsage columnID="8EA9E84B-EE97-226C-6028-D1BA402E8755"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="40CBD29D-394F-3589-EDCE-21280491CEA1" name="Relacionado_Producto_FKv2">
+<createdBy>alumnos</createdBy>
+<createdTime>2025-04-02 07:23:52 UTC</createdTime>
+<generatorID>D2F4B539-33F0-6A54-58EE-8C4BFAFF2198</generatorID>
+<ownerDesignName>modelo</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9997225A-3E4B-0786-CFE9-CD67C846DC3F"/>
+<colUsage columnID="E4397F4E-1675-8A38-F744-146365424F6F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
