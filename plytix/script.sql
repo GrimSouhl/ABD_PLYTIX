@@ -342,7 +342,7 @@ CREATE OR REPLACE TRIGGER TR_PRODUCTOS
 BEFORE INSERT ON PRODUCTO
 FOR EACH ROW
 DECLARE
-    CUENTIDACT VARCHAR2;
+    --CUENTIDACT VARCHAR2;
     --
     --CUENTAIDCAT VARCHAR2;
     --CUENTAIDPROD VARCHAR2;
@@ -351,17 +351,17 @@ BEGIN
         :new.GTIN := SEQ_PRODUCTOS.NEXTVAL;
     END IF;
     --AÑADIDO:
-    SELECT CUENTAID INTO CUENTIDACT FROM USUARIO WHERE NOMBREUSUARIO = USER;
-    :NEW.CUENTAID :=CUENTIDACT;
+    --SELECT CUENTAID INTO CUENTIDACT FROM USUARIO WHERE NOMBREUSUARIO = USER;
+   -- :NEW.CUENTAID :=CUENTIDACT;
     --UN PRODUCTO SOLO PUEDEE SER  DE UNA CAT DE SU MISMA CUENTA
     --SELECT CUENTAID INTO CUENTAIDCAT FROM CATEGORIA
     
     
 END TR_PRODUCTOS;
 /
-INSERT INTO PRODUCTO (GTIN,SKU, PRODUCTONOMBRE,MINIATURA, TEXTOCORTO, CREADO, MODIFICADO, CUENTAID)
-SELECT GTIN,SKU,PRODUCTONOMBRE, MINIATURA,TEXTOCORTO,CREADO,MODIFICADO, CUENTAID
-FROM S_PRODUCTOS;                                                                        -----------------------------------------------------------------DUDA
+INSERT INTO PRODUCTO (SKU, PRODUCTONOMBRE, TEXTOCORTO, CREADO, CUENTAID)
+SELECT TRIM(SKU),NOMBRE,TEXTOCORTO,CREADO, CUENTA_ID
+FROM PRODUCTOS_EXT;                                                                        -----------------------------------------------------------------DUDA
 --FROM 
 SELECT * FROM S_PRODUCTOS;
 
@@ -372,17 +372,16 @@ SELECT * FROM S_PRODUCTOS;
 de la seguridad (TDE y VPD). Puede crear, modificar y eliminar cuentas, usuarios, productos,
 activos y planes*/
 
-GRANT CREATE USER TO PLYTIX; --PREGUNTAR
-CREATE USER USUARIO_ESTANDAR IDENTIFIED BY USUARIO 
-    DEFAULT TABLESPACE TS_PLYTIX 
-    QUOTA 50M ON TS_PLYTIX;
-GRANT CONNECT TO USUARIO_ESTANDAR;
-    
+--GRANT CREATE USER TO PLYTIX; 
+--GRANT CREATE ROLE TO PLYTIX;
+
 CREATE USER ADMIN_PLYTIX IDENTIFIED BY USUARIO 
     DEFAULT TABLESPACE TS_PLYTIX 
     QUOTA 50M ON TS_PLYTIX;
 --USUARIO ADMIN    
 CREATE ROLE PLYTIX_ADMIN;
+
+grant administer key management to plytix_admin; -------
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.CUENTA TO PLYTIX_ADMIN;
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.USUARIO TO PLYTIX_ADMIN;
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.PRODUCTO TO PLYTIX_ADMIN;
@@ -391,50 +390,72 @@ GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.PLAN TO PLYTIX_ADMIN;
 GRANT CONNECT TO PLYTIX_ADMIN;
 
 GRANT PLYTIX_ADMIN TO ADMIN_PLYTIX;
-GRANT CREATE ROLE TO PLYTIX;
+
+--desde admin_plytix
+select * from plytix.cuenta;
+select * from plytix.producto;
+select * from PLYTIX.ACTIVO;
+select * from PLYTIX.PLAN;
+select * from PLYTIX.USUARIO;
+
 
 --USUARIO ESTANDAR------------------------------------------------------
+
+CREATE USER anagarcia IDENTIFIED BY usuario 
+    DEFAULT TABLESPACE TS_PLYTIX 
+    QUOTA 50M ON TS_PLYTIX;
+GRANT CONNECT TO anagarcia;
+
 CREATE ROLE PLYTIX_ROL_ESTANDAR;
+
+GRANT PLYTIX_ROL_ESTANDAR to anagarcia;
+
 create or replace view v_estandar_producto as 
-    select * from producto
-    where cuentaid = (select cuentaid from usuario where nombreusuario = user)
+    select * from plytix.producto
+    where cuentaid = (select cuentaid from plytix.usuario where avatar = user)
     with check option 
     ;
-grant select,update, insert, delete on v_estandar_producto to plytix_rol_estandar;
+grant select,update, insert, delete on v_estandar_producto to PLYTIX_ROL_ESTANDAR;
 create or replace view v_estandar_usuario as 
-    select * from USUARIO
-    where cuentaid = (select cuentaid from usuario where nombreusuario = user)
+    select * from plytix.USUARIO
+    where cuentaid = (select cuentaid from usuario where avatar = user)
     with check option 
     ;
 grant select,update, insert, delete on v_estandar_usuario to plytix_rol_estandar;
 create or replace view v_estandar_activo as 
-    select * from ACTIVO
-    where cuentaid = (select cuentaid from usuario where nombreusuario = user)
+    select * from plytix.ACTIVO
+    where cuentaid = (select cuentaid from usuario where avatar = user)
     with check option 
     ;
 grant select,update, insert, delete on v_estandar_activo to plytix_rol_estandar;
 create or replace view v_estandar_atributo as 
-    select * from atributo
-    where cuentaid = (select cuentaid from usuario where nombreusuario = user)
+    select * from plytix.atributo
+    where cuentaid = (select cuentaid from usuario where avatar = user)
     with check option 
     ;   
 grant select,update, insert, delete on v_estandar_atributo to plytix_rol_estandar;
 
+select * from dba_role_privs where grantee = 'anagarcia';
 create or replace view v_estandar_plan as 
-    select * from plan
-    where planid = (select plan_planid from usuario where nombreusuario = user)
+    SELECT P.* 
+        FROM plytix.usuario U
+        JOIN plytix.cuenta C ON U.cuentaid = C.cuentaid
+        JOIN plytix.plan P ON C.plan_planid = P.planid
+        WHERE U.avatar = user
     with check option 
-    ;   
-grant select on v_estandar_plan to plytix_rol_estandar;
+; 
+    
+grant select on v_estandar_plan to PLYTIX_ROL_ESTANDAR;
             
-grant plytix_rol_estandar to USUARIO_ESTANDAR;
+
+
 
 ------------------------------------------------------------------------------------
 --gestor de cuentas
 /*Accede y administra la tabla Cuenta. Puede modificar los datos de las
 cuentas (Nombre, DirecciónFiscal, NIF, etc.). No tiene acceso a datos sensibles de Usuario (Email,
 Teléfono).
-*/
+*/ 
 CREATE ROLE PLYTIX_GESTOR_CUENTAS;
 
 CREATE OR REPLACE VIEW V_GESTOR_CUENTAS AS
@@ -449,7 +470,7 @@ CategoríasProducto, CategoríasActivos). Puede definir planes y modificar los ele
 componen.
 */
 CREATE ROLE PLYTIX_PLANIFICADOR;
-grant select,update, insert, delete on PLAN TO PLYTIX_PLANIFICADOR; ---DUDA
+grant select,update, insert, delete on PLAN TO PLYTIX_PLANIFICADOR; 
 
 
 GRANT DELETE TO PLYTIX;
@@ -472,10 +493,11 @@ CREATE OR REPLACE VIEW V_PRODUCTO_PUBLICO AS SELECT * FROM PRODUCTO WHERE PUBLIC
 
 
 GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.ACTIVO TO USUARIO_ESTANDAR;
-GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.CATEGORIA_ACTIVO TO USUARIO_ESTANDAR;--DUDA
+GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.CATEGORIA_ACTIVO TO USUARIO_ESTANDAR;
 
 GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.CATEGORIA TO USUARIO_ESTANDAR;
 GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.REL_CAT_PROD TO USUARIO_ESTANDAR;
+
 
 GRANT INSERT, SELECT, UPDATE, DELETE ON PLYTIX.RELACIONADO TO USUARIO_ESTANDAR;
 
