@@ -35,6 +35,25 @@ productos y categorías.
 • Gestión de Usuarios: Obtener información de usuarios asociada a las cuentas. 
 */
 
+
+
+
+
+/*
+funciones auxiliares: o en el body o en un paquete privado
+
+
+EN EL PROCEDIMIENTO 8: LOS COMMITS JODEN EL ROLLBACK
+-> SOL: NO HACEMOS Q HAGAN COMMIT
+-ROLLBACK TO POINTS
+
+PROC.9 : 
+-OP1:BUSCAR USERS HUERFANOS PARA MATARLOS
+-OP2: JOB Q BUSCA LOS USUARIOS HUERFANOS ->INCONVENIENTES: MUCHO TIEMPO
+
+
+*/
+
 CREATE OR REPLACE PACKAGE PKG_ADMIN_PRODUCTOS AS 
 
    FUNCTION F_OBTENER_PLAN_CUENTA(p_cuenta_id IN CUENTA.ID%TYPE) 
@@ -64,8 +83,23 @@ END;
 /
 
 
+/*
+pkg_plytix_util -> funciones auxiliares : verifica_cuenta_producto
+
+PROCEDURE REGISTRA_ERROR(P_MENSAJE IN VARCHAR2,P_DONDE VARCHAR2) AS
+    PRAGMA AUTONOMOUS_TRANSACTION; 
+BEGIN
+    INSERT INTO TRAZA VALUES (SYSDATE, USER, P_DONDE,  P_MENSAJE);
+END;
 
 
+END PKG_PLYTIX_UTIL;
+
+
+PKG_PLYTIX_UTIL.REGISTRA_ERROR( 'NOSE PUEDE HACER' , $PLSQL_UNIT);
+
+
+*/
 
 
 
