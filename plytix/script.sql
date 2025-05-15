@@ -1,9 +1,9 @@
 --############NIVEL FÍSICO############--------
 
------DROP USER PLYTIX CASCADE;
 --####1.-CREACION DEL USUARIO Y TABLESPACE
 --TABLESPACES
---DESDE SYSTEM
+--DESDE SYSTEM:
+
 CREATE TABLESPACE TS_PLYTIX DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\plytix.dbf' SIZE 200M AUTOEXTEND ON;
 --ALTER DATABASE DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\plytix.dbf' RESIZE 200M;
 CREATE TABLESPACE TS_INDICES DATAFILE 'C:\APP\ALUMNOS\ORADATA\ORCL\TS_INDICES.dbf' SIZE 50M AUTOEXTEND ON;
@@ -20,6 +20,8 @@ GRANT CREATE TABLE, CREATE VIEW, CREATE MATERIALIZED VIEW TO PLYTIX;
 GRANT CREATE SEQUENCE, CREATE PROCEDURE TO PLYTIX;
 GRANT CREATE PUBLIC SYNONYM TO PLYTIX;
 GRANT CREATE SEQUENCE TO PLYTIX; --8
+
+
 
 ----#####SCRIPT DE CREACION DE TALAS Y RELACIONES####-------
 --EJECUTAR DESDE PLYTIX-----
@@ -210,6 +212,7 @@ ALTER TABLE usuario
 
 --#########################################---------
 
+--desde system
 --VERIFICACIONES
 SELECT TABLESPACE_NAME FROM DBA_TABLESPACES 
 WHERE TABLESPACE_NAME IN ('TS_PLYTIX', 'TS_INDICES');
@@ -224,6 +227,7 @@ WHERE TABLESPACE_NAME IN ('TS_PLYTIX', 'TS_INDICES');
 
 --2
 
+--desde system
 select * from ALL_INDEXES WHERE OWNER = 'PLYTIX';
 --FUNCION QUE VA METIENDO LOAS INDEXES EN EL TABLESPACE TS_INDICES
 BEGIN
@@ -242,7 +246,6 @@ select * from ALL_INDEXES WHERE TABLESPACE_NAME = 'TS_INDICES';
 
     
 --4
-
 --DESDE SYSTEM:
 create or replace directory directorio_ext as 'C:\app\alumnos\admin\orcl\dpdump';
 
@@ -281,7 +284,7 @@ ORGANIZATION EXTERNAL (
      LOCATION ('productos.csv')
 );
 
---COMPROBAMOS QUE LA TABLA SE CREO Y TIENE DATOS:
+--COMPROBAMOS QUE LA TABLA SE CREO Y TIENE DATOS: desde plytix 
 SELECT * FROM productos_ext;
 
 SELECT TABLE_NAME FROM ALL_EXTERNAL_TABLES;
@@ -289,7 +292,7 @@ SELECT TABLE_NAME FROM ALL_EXTERNAL_TABLES;
 SELECT * FROM user_external_tables where table_name = 'PRODUCTOS_EXT';
 
 --5 INDICES--
-
+--desde plytix:
 CREATE INDEX idx_usuario_email ON USUARIO(email) TABLESPACE TS_INDICES;
 
 CREATE INDEX idx_usuario_telefono ON USUARIO(telefono) TABLESPACE TS_INDICES;
@@ -311,7 +314,7 @@ TABLESPACE TS_INDICES;
 
 
 --6 VISTA MARERIALLIZADA
-
+--desde plytix
 CREATE MATERIALIZED VIEW VM_PRODUCTOS
 TABLESPACE TS_PLYTIX
 BUILD IMMEDIATE
@@ -322,7 +325,7 @@ AS
 SELECT * FROM PRODUCTO;
 
 --7 SINÓNIMOS--
-
+--desde plytix
 --SELECT * FROM VM_PRODUCTOS;
 CREATE OR REPLACE PUBLIC SYNONYM S_PRODUCTOS FOR VM_PRODUCTOS;
 SELECT * FROM S_PRODUCTOS;
@@ -330,7 +333,7 @@ SELECT * FROM S_PRODUCTOS;
 
 --8--
 
---GRANT CREATE SEQUENCE TO PLYTIX;
+
 
 CREATE SEQUENCE SEQ_PRODUCTOS
     START WITH 1
@@ -363,7 +366,8 @@ INSERT INTO PRODUCTO (SKU, PRODUCTONOMBRE, TEXTOCORTO, CREADO, CUENTAID)
 SELECT TRIM(SKU),NOMBRE,TEXTOCORTO,CREADO, CUENTA_ID
 FROM PRODUCTOS_EXT;                                                                        -----------------------------------------------------------------DUDA
 --FROM 
-SELECT * FROM S_PRODUCTOS;
+SELECT * FROM PRODUCTOS_EXT;
+SELECT * FROM PRODUCTO;
 
 
 
@@ -372,12 +376,12 @@ SELECT * FROM S_PRODUCTOS;
 de la seguridad (TDE y VPD). Puede crear, modificar y eliminar cuentas, usuarios, productos,
 activos y planes*/
 
---GRANT CREATE USER TO PLYTIX; 
---GRANT CREATE ROLE TO PLYTIX;
+--SYSTEM
 
 CREATE USER ADMIN_PLYTIX IDENTIFIED BY USUARIO 
     DEFAULT TABLESPACE TS_PLYTIX 
     QUOTA 50M ON TS_PLYTIX;
+GRANT CONNECT TO PLYTIX_ADMIN;
 --USUARIO ADMIN    
 CREATE ROLE PLYTIX_ADMIN;
 
@@ -387,7 +391,6 @@ GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.USUARIO TO PLYTIX_ADMIN;
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.PRODUCTO TO PLYTIX_ADMIN;
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.ACTIVO TO PLYTIX_ADMIN;
 GRANT SELECT,INSERT, DELETE, UPDATE ON PLYTIX.PLAN TO PLYTIX_ADMIN;
-GRANT CONNECT TO PLYTIX_ADMIN;
 
 GRANT PLYTIX_ADMIN TO ADMIN_PLYTIX;
 
@@ -400,55 +403,77 @@ select * from PLYTIX.USUARIO;
 
 
 --USUARIO ESTANDAR------------------------------------------------------
-
-CREATE USER anagarcia IDENTIFIED BY usuario 
+--system
+CREATE USER lauramartin IDENTIFIED BY usuario 
     DEFAULT TABLESPACE TS_PLYTIX 
     QUOTA 50M ON TS_PLYTIX;
-GRANT CONNECT TO anagarcia;
+GRANT CONNECT TO lauramartin;
 
 CREATE ROLE PLYTIX_ROL_ESTANDAR;
 
-GRANT PLYTIX_ROL_ESTANDAR to anagarcia;
 
+--desde plytix:
 create or replace view v_estandar_producto as 
-    select * from plytix.producto
-    where cuentaid = (select cuentaid from plytix.usuario where avatar = user)
+    select * from producto
+    where cuentaid = (select cuentaid from usuario where UPPER(avatar) = user)
     with check option 
     ;
-grant select,update, insert, delete on v_estandar_producto to PLYTIX_ROL_ESTANDAR;
+
 create or replace view v_estandar_usuario as 
-    select * from plytix.USUARIO
-    where cuentaid = (select cuentaid from usuario where avatar = user)
+    select * from USUARIO
+    where cuentaid = (select cuentaid from usuario where UPPER(avatar) = user)
     with check option 
     ;
-grant select,update, insert, delete on v_estandar_usuario to plytix_rol_estandar;
+
 create or replace view v_estandar_activo as 
-    select * from plytix.ACTIVO
-    where cuentaid = (select cuentaid from usuario where avatar = user)
+    select * from ACTIVO
+    where cuentaid = (select cuentaid from usuario where UPPER(avatar) = user)
     with check option 
     ;
-grant select,update, insert, delete on v_estandar_activo to plytix_rol_estandar;
+
 create or replace view v_estandar_atributo as 
-    select * from plytix.atributo
-    where cuentaid = (select cuentaid from usuario where avatar = user)
+    select * from atributo
+    where cuentaid = (select cuentaid from usuario where UPPER(avatar) = user)
     with check option 
     ;   
-grant select,update, insert, delete on v_estandar_atributo to plytix_rol_estandar;
 
-select * from dba_role_privs where grantee = 'anagarcia';
+
 create or replace view v_estandar_plan as 
     SELECT P.* 
-        FROM plytix.usuario U
-        JOIN plytix.cuenta C ON U.cuentaid = C.cuentaid
-        JOIN plytix.plan P ON C.plan_planid = P.planid
-        WHERE U.avatar = user
+        FROM usuario U
+        JOIN cuenta C ON U.cuentaid = C.cuentaid
+        JOIN plan P ON C.plan_planid = P.planid
+        WHERE UPPER(U.avatar) = user
     with check option 
 ; 
-    
+
+SELECT * FROM producto WHERE cuentaid = (SELECT cuentaid FROM usuario WHERE avatar = 'LAURAMARTIN');
+
+grant select,update, insert, delete on v_estandar_producto to PLYTIX_ROL_ESTANDAR;
+grant select,update, insert, delete on v_estandar_usuario to plytix_rol_estandar;
+grant select,update, insert, delete on v_estandar_activo to plytix_rol_estandar;
+grant select,update, insert, delete on v_estandar_atributo to plytix_rol_estandar;
+
 grant select on v_estandar_plan to PLYTIX_ROL_ESTANDAR;
-            
 
+--DESDE SYSTEM
+GRANT PLYTIX_ROL_ESTANDAR to lauramartin;
 
+SELECT * 
+FROM DBA_ROLE_PRIVS 
+WHERE GRANTEE = 'LAURAMARTIN';
+
+SELECT * 
+FROM DBA_TAB_PRIVS 
+WHERE GRANTEE = 'PLYTIX_ROL_ESTANDAR' ORDER BY TABLE_NAME;
+
+--PARA PROBAR USUARIO, 
+--DESDE LAURAMARTIN:
+SELECT * FROM PLYTIX.V_ESTANDAR_PRODUCTO;
+SELECT * FROM PLYTIX.v_estandar_usuario;
+SELECT * FROM PLYTIX.V_ESTANDAR_ACTIVO;
+SELECT * FROM PLYTIX.V_ESTANDAR_PLAN;
+SELECT * FROM PLYTIX.V_ESTANDAR_ATRIBUTO;
 
 ------------------------------------------------------------------------------------
 --gestor de cuentas
@@ -456,13 +481,23 @@ grant select on v_estandar_plan to PLYTIX_ROL_ESTANDAR;
 cuentas (Nombre, DirecciónFiscal, NIF, etc.). No tiene acceso a datos sensibles de Usuario (Email,
 Teléfono).
 */ 
+
+--desde system:
 CREATE ROLE PLYTIX_GESTOR_CUENTAS;
 
+--desde plytix: 
 CREATE OR REPLACE VIEW V_GESTOR_CUENTAS AS
   SELECT USUARIOID, NOMBREUSUARIO, AVATAR, CUENTAID,CUENTAID_ALT FROM USUARIO
 ;
 grant select,update, insert, delete on V_GESTOR_CUENTAS to PLYTIX_GESTOR_CUENTAS;
 grant select,update, insert, delete on PLAN TO PLYTIX_GESTOR_CUENTAS;
+
+--para probarlo (desde system): 
+CREATE USER gestorcuentas IDENTIFIED BY usuario 
+    DEFAULT TABLESPACE TS_PLYTIX 
+    QUOTA 50M ON TS_PLYTIX;
+GRANT CONNECT TO gestorcuentas;
+grant plytix_gestor_cuentas to gestorcuentas;
 
 /*
 Planificador de Servicios: Administra la tabla Plan y sus relaciones (Productos, Activos,
