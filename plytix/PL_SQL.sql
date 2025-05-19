@@ -1,12 +1,4 @@
-/*
-Crear una tabla para poder seguir la traza de los errores producidos. La tabla tendrá los siguientes
-atributos:
-Fecha Date
-Usuario VARCHAR2(40)
-Causante VARCHAR2(40)
-Descripcion VARCHAR2(500)
-*/
-
+--desde plytix
 CREATE TABLE TRAZA (
     Fecha Date,
     Usuario VARCHAR2(40),
@@ -14,47 +6,19 @@ CREATE TABLE TRAZA (
     Descripcion VARCHAR2(500)
 );
 
-/*
-Así, por ejemplo, un procedimiento que capture una excepción podrá ejecutar una sentencia como la
-siguiente.
-insert into traza values (sysdate,user, $$PLSQL_UNIT,
- SQLCODE||' '||SUBSTR(SQL_ERRM, 1, 500));
-$$PLSQL_UNIT devuelve el procedimiento o paquete en ejecución
-*/
-
-/*
-Crear un paquete PL/SQL (PKG_ADMIN_PRODUCTOS) que contenga funciones y procedimientos
-para:
-• Gestión de Cuentas y Planes: Facilitar la obtención de información resumida y la validación
-de datos relacionados con cuentas y planes.
-• Gestión de Productos: Proporcionar herramientas para consultar y manipular información de
-productos de manera eficiente.
-• Gestión de Activos: Ofrecer funciones para verificar la integridad de los activos asociados a
-productos y categorías.
-• Gestión de Categorías: Facilitar la consulta de información sobre categorías.
-• Gestión de Usuarios: Obtener información de usuarios asociada a las cuentas. 
-*/
 
 
-
-
-
-/*
-funciones auxiliares: o en el body o en un paquete privado
-
-
-EN EL PROCEDIMIENTO 8: LOS COMMITS JODEN EL ROLLBACK
--> SOL: NO HACEMOS Q HAGAN COMMIT
--ROLLBACK TO POINTS
-
-PROC.9 : 
--OP1:BUSCAR USERS HUERFANOS PARA MATARLOS
--OP2: JOB Q BUSCA LOS USUARIOS HUERFANOS ->INCONVENIENTES: MUCHO TIEMPO
-
-
-*/
 
 CREATE OR REPLACE PACKAGE PKG_ADMIN_PRODUCTOS AS 
+
+    EXCEPTION_PLAN_NO_ASIGNADO EXCEPTION;
+    PRAGMA EXCEPTION_INIT(EXCEPTION_PLAN_NO_ASIGNADO, -20001);
+    
+    EXCEPTION_ASOCIACION_DUPLICADA EXCEPTION;
+    PRAGMA EXCEPTION_INIT(EXCEPTION_ASOCIACION_DUPLICADA, -20002);
+    
+    INVALID_DATA EXCEPTION;
+    PRAGMA EXCEPTION_INIT(INVALID_DATA, -20003);
 
    FUNCTION F_OBTENER_PLAN_CUENTA(p_cuenta_id IN CUENTA.ID%TYPE) 
    RETURN PLAN%ROWTYPE;
@@ -83,23 +47,7 @@ END;
 /
 
 
-/*
-pkg_plytix_util -> funciones auxiliares : verifica_cuenta_producto
 
-PROCEDURE REGISTRA_ERROR(P_MENSAJE IN VARCHAR2,P_DONDE VARCHAR2) AS
-    PRAGMA AUTONOMOUS_TRANSACTION; 
-BEGIN
-    INSERT INTO TRAZA VALUES (SYSDATE, USER, P_DONDE,  P_MENSAJE);
-END;
-
-
-END PKG_PLYTIX_UTIL;
-
-
-PKG_PLYTIX_UTIL.REGISTRA_ERROR( 'NOSE PUEDE HACER' , $PLSQL_UNIT);
-
-
-*/
 
 
 
