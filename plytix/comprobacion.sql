@@ -5,7 +5,7 @@ SET SERVEROUTPUT ON;
 DECLARE
   v_plan  PLAN%ROWTYPE;
 BEGIN
-  -- Cambia 123 por un CUENTAID válido de tu tabla CUENTA
+  -- Cambia 123 por un CUENTAID vÃ¡lido de tu tabla CUENTA
   v_plan := PKG_ADMIN_PRODUCTOS.F_OBTENER_PLAN_CUENTA(1);
 
   -- Muestra algunos campos del registro PLAN
@@ -48,7 +48,7 @@ DECLARE
 BEGIN
   v_num_cat := PKG_ADMIN_PRODUCTOS.F_NUM_CATEGORIAS_CUENTA(0);
 
-  DBMS_OUTPUT.PUT_LINE('Número de categorías: ' || v_num_cat);
+  DBMS_OUTPUT.PUT_LINE('NÃºmero de categorÃ­as: ' || v_num_cat);
 
 EXCEPTION
   WHEN OTHERS THEN
@@ -67,7 +67,7 @@ END;
 INSERT INTO PRODUCTO (GTIN,SKU,PRODUCTONOMBRE,CREADO, CUENTAID)
 VALUES ('123', 'prueba','prueba','prueba', '2');
 
--- CREO TAMBIÉN ATRIBUTO Y ACTIVO
+-- CREO TAMBIÃ‰N ATRIBUTO Y ACTIVO
 
 INSERT INTO ATRIBUTO (ATRIBUTOID, ATRIBUTONOMBRE, CREADO, CUENTAID2)
 VALUES('PRUEBA','PRUEBA','PRUEBA','2');
@@ -166,7 +166,7 @@ BEGIN
    END LOOP;
 
    ------------------------------------------------------------------------
-   -- 2. Eliminar productos que ya no están en PRODUCTO_EXT
+   -- 2. Eliminar productos que ya no estÃ¡n en PRODUCTO_EXT
    ------------------------------------------------------------------------
    FOR r_prod IN (
       SELECT GTIN
@@ -176,7 +176,7 @@ BEGIN
             SELECT SKU FROM PRODUCTO_EXT WHERE CUENTA_ID = p_cuenta_id
         )
    ) LOOP
-      -- Eliminar producto que ya no está en PRODUCTO_EXT
+      -- Eliminar producto que ya no estÃ¡ en PRODUCTO_EXT
       P_ELIMINAR_PRODUCTO_Y_ASOCIACIONES(
          p_producto_gtin => r_prod.GTIN,
          p_cuenta_id     => p_cuenta_id
@@ -236,4 +236,13 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Error inesperado: ' || SQLERRM);
 END;
+
+
+INSERT INTO ATRIBUTO (ATRIBUTOID, ATRIBUTONOMBRE, ATRIBUTOTIPO, CREADO, CUENTAID, CUENTAID2)
+    VALUES('PRUEBA', 'PRUEBA','','PRUEBA','','2');
+INSERT INTO ATRIBUTO_PRODUCTO (VALOR, PRODUCTO_GTIN, PRODUCTO_CUENTAID, ATRIBUTO_ID, CUENTAID)
+    VALUES ('ROJO','60','24','PRUEBA','24' );
+INSERT INTO ATRIBUTO_PRODUCTO (VALOR, PRODUCTO_GTIN, PRODUCTO_CUENTAID, ATRIBUTO_ID, CUENTAID)
+    VALUES ('VERDE','59','24','PRUEBA','24' );
+COMMIT;
 
