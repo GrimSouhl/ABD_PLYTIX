@@ -102,3 +102,88 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE(' Error inesperado: ' || SQLERRM);
 END;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------
+----------------------------------
+
+PROCEDURE P_ACTUALIZAR_PRODUCTOS(p_cuenta_id IN CUENTA.CUENTAID%TYPE)
+IS
+   v_error_msg VARCHAR2(4000);
+BEGIN
+   ------------------------------------------------------------------------
+   -- 1. Recorrer los productos de PRODUCTOS_EXT para esa cuenta
+   ------------------------------------------------------------------------
+   FOR r_ext IN (
+      SELECT SKU, GTIN, PRODUCTONOMBRE
+      FROM PRODUCTOS_EXT
+      WHERE CUENTAID = p_cuenta_id
+   ) LOOP
+      DECLARE
+         v_nombre_actual PRODUCTOS.PRODUCTONOMBRE%TYPE;
+      BEGIN
+         -- Intentar obtener el nombre actual en PRODUCTOS
+         SELECT PRODUCTONOMBRE INTO v_nombre_actual
+         FROM PRODUCTOS
+         WHERE SKU = r_ext.SKU AND CUENTAID = p_cuenta_id;
+
+         -- Si el nombre es distinto, actualizar llamando al procedimiento
+         IF v_nombre_actual != r_ext.PRODUCTONOMBRE THEN
+            P_ACTUALIZAR_NOMBRE_PRODUCTO(
+               p_sku => r_ext.SKU,
+               p_cuenta_id => p_cuenta_id,
+               p_nuevo_nombre => r_ext.PRODUCTONOMBRE
+            );
+         END IF;
+
+      EXCEPTION
+         WHEN NO_DATA_FOUND THEN
+            -- Producto no existe ? insertarlo
+            INSERT INTO PRODUCTOS (SKU, GTIN, PRODUCTONOMBRE, CUENTAID)
+            VALUES (r_ext.SKU, r_ext.GTIN, r_ext.PRODUCTONOMBRE, p_cuenta_id);
+      END;
+   END LOOP;
+
+   ------------------------------------------------------------------------
+   -- 2. Eliminar productos de PRODUCTOS que ya no están en PRODUCTOS_EXT
+   ------------------------------------------------------------------------
+   FOR r_prod IN (
+      SELECT SKU, GTIN
+      FROM PRODUCTOS
+      WHERE CUENTAID = p_cuenta_id
+        AND SKU NOT IN (
+            SELECT SKU FROM PRODUCTOS_EXT WHERE CUENTAID = p_cuenta_id
+        )
+   ) LOOP
+      -- Llamar al procedimiento que borra el producto y sus asociaciones
+      P_ELIMINAR_PRODUCTO_Y_ASOCIACIONES(
+         p_producto_gtin => r_prod.GTIN,
+         p_cuenta_id     => p_cuenta_id
+      );
+   END LOOP;
+
+EXCEPTION
+   WHEN OTHERS THEN
+      v_error_msg := 'Error en P_ACTUALIZAR_PRODUCTOS: ' || SQLERRM;
+      INSERT INTO TRAZA (FECHA, USUARIO, CAUSANTE, DESCRIPCION)
+      VALUES (SYSDATE, USER, 'P_ACTUALIZAR_PRODUCTOS', v_error_msg);
+      DBMS_OUTPUT.PUT_LINE(v_error_msg);
+      RAISE;
+END P_ACTUALIZAR_PRODUCTOS;
