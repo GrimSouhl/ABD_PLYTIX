@@ -630,7 +630,7 @@ INSERT INTO CUENTA (
   SYSDATE, 'usuario1', 'PLAN1', NULL, NULL
 );
 
--- 2?? Insertar categorías origen y destino en la cuenta
+-- 2 Insertar categorías origen y destino en la cuenta
 INSERT INTO CATEGORIA (CATEGORIAID, CATEGORIANOMBRE, CUENTAID)
 VALUES ('999', 'Categoría Origen', 'TEST_CUENTA');
 
@@ -666,7 +666,7 @@ BEGIN
 END;
 /
 
--- 6?? Comprobar resultados
+-- 6 Comprobar resultados
 -- Productos ya no deben estar en la categoría origen
 SELECT * FROM REL_CAT_PROD
 WHERE CATEGORIAID = '999' AND CATEGORIA_CUENTAID = 'TEST_CUENTA';
@@ -687,6 +687,14 @@ BEGIN
     p_categoria_origen_id => '999',
     p_categoria_destino_id => '1000'
   );
+  EXCEPTION
+   WHEN NO_DATA_FOUND THEN
+      DBMS_OUTPUT.PUT_LINE('La cuenta no existe.');
+   WHEN PKG_ADMIN_PRODUCTOS.EXCEPTION_PLAN_NO_ASIGNADO THEN
+      DBMS_OUTPUT.PUT_LINE('La cuenta no tiene plan asignado.');
+   WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error inesperado: ' || SQLERRM);
+END;
 END;
 /
 
