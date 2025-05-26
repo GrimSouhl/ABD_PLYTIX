@@ -246,3 +246,41 @@ INSERT INTO ATRIBUTO_PRODUCTO (VALOR, PRODUCTO_GTIN, PRODUCTO_CUENTAID, ATRIBUTO
     VALUES ('VERDE','59','24','PRUEBA','24' );
 COMMIT;
 
+
+-- JOB 1 ------------------------------------
+
+-- EJECUTAR EN SYSTEM -----------------------
+
+GRANT CREATE JOB TO PLYTIX;
+GRANT MANAGE SCHEDULER TO PLYTIX;
+
+-- EJECUTAR EN PLYTIX -----------------------
+
+BEGIN
+   DBMS_SCHEDULER.CREATE_JOB (
+      job_name        => 'LIMPIAR_TRAZA',
+      job_type        => 'PLSQL_BLOCK',
+      job_action      => 'BEGIN 
+                            DELETE FROM TRAZA
+                            WHERE FECHA < SYSDATE - INTERVAL ''1'' MINUTE; 
+                        END;',
+      start_date      => SYSDATE,
+      repeat_interval => 'FREQ=MINUTELY; INTERVAL=1', -- cada minuto
+      enabled         => TRUE,
+      comments        => 'Limpia la tabla TRAZA periódicamente'
+   );
+END;
+
+-- COMPROBACIONES QUE PODEMOS HACER--------- 
+
+SELECT job_name, enabled, repeat_interval, next_run_date
+FROM USER_SCHEDULER_JOBS
+WHERE job_name = 'LIMPIAR_TRAZA';
+
+SELECT log_date, status, error#, additional_info
+FROM USER_SCHEDULER_JOB_RUN_DETAILS
+WHERE job_name = 'LIMPIAR_TRAZA'
+ORDER BY log_date DESC;
+
+
+
