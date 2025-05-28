@@ -857,15 +857,19 @@ BEGIN
       job_type        => 'PLSQL_BLOCK',
       job_action      => 'BEGIN 
                             DELETE FROM TRAZA
-                            WHERE FECHA < SYSDATE - INTERVAL ''1'' MINUTE; 
+                            WHERE FECHA < ADD_MONTHS(SYSDATE, -12); 
                         END;',
       start_date      => SYSDATE,
-      repeat_interval => 'FREQ=MINUTELY; INTERVAL=1', -- cada minuto
+      repeat_interval => 'FREQ=WEEKLY; BYDAY=SUN; BYHOUR=23; BYMINUTE=0; BYSECOND=0',
       enabled         => TRUE,
       comments        => 'Limpia la tabla TRAZA periódicamente'
    );
 END;
 /
+
+--BEGIN
+--   DBMS_SCHEDULER.DROP_JOB('LIMPIAR_TRAZA');
+--END;
 --COMPROBACIONES:
 SELECT job_name, enabled, repeat_interval, next_run_date
 FROM USER_SCHEDULER_JOBS
@@ -891,7 +895,7 @@ BEGIN
                       CURSOR c_cuentas IS SELECT CUENTAID FROM CUENTA;
                     BEGIN
                       FOR r_cuenta IN c_cuentas LOOP
-                        P_ACTUALIZAR_PRODUCTOS(r_cuenta.CUENTAID);
+                        PKG_ADMIN_PRODUCTOS.P_ACTUALIZAR_PRODUCTOS(r_cuenta.CUENTAID);
                       END LOOP;
                     END;',
     start_date      => SYSDATE,
@@ -901,6 +905,9 @@ BEGIN
 END;
 /
 
+BEGIN
+   DBMS_SCHEDULER.DROP_JOB('J_ACTUALIZA_PRODUCTOS');
+END;
 SELECT job_name, enabled, repeat_interval, next_run_date
 FROM USER_SCHEDULER_JOBS
 WHERE job_name = 'J_ACTUALIZA_PRODUCTOS';
