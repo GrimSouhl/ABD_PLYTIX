@@ -18,8 +18,16 @@ QUOTA 50M ON TS_INDICES;
 GRANT CONNECT, RESOURCE TO PLYTIX;
 GRANT CREATE TABLE, CREATE VIEW, CREATE MATERIALIZED VIEW TO PLYTIX;
 GRANT CREATE SEQUENCE, CREATE PROCEDURE TO PLYTIX;
+GRANT CREATE ANY SYNONYM TO PLYTIX;
 GRANT CREATE PUBLIC SYNONYM TO PLYTIX;
 GRANT CREATE SEQUENCE TO PLYTIX; --8
+GRANT CREATE USER TO PLYTIX;
+GRANT DROP USER TO PLYTIX;
+GRANT GRANT ANY ROLE TO PLYTIX;
+GRANT CREATE JOB TO PLYTIX;
+GRANT MANAGE SCHEDULER TO PLYTIX;
+
+
 
 
 
@@ -210,6 +218,10 @@ ALTER TABLE rel_cat_prod
 ALTER TABLE usuario
     ADD CONSTRAINT fk_usuario_cuenta FOREIGN KEY (cuentaid) REFERENCES cuenta (cuentaid);
 
+
+--Encriptar variable:
+
+ALTER TABLE PRODUCTO MODIFY ( modificado encrypt );
 --#########################################---------
 
 --desde system
@@ -377,7 +389,41 @@ de la seguridad (TDE y VPD). Puede crear, modificar y eliminar cuentas, usuarios
 activos y planes*/
 
 --SYSTEM
+--VPD
+begin dbms_rls.add_policy (
+    object_schema =>'PLYTIX',
+    object_name =>'VM_PRODUCTOS',
+    policy_name =>'POL_PRODUCTOS',
+    function_schema =>'PLYTIX',
+    policy_function => 'VPD_FUNCTION',
+    statement_types => 'SELECT, UPDATE, DELETE' 
+    ); 
+end;
+/
 
+--DROP FUNCTION PLYTIX.VPD_FUNCTION ;
+CREATE OR REPLACE FUNCTION PLYTIX.VPD_FUNCTION (
+  schema_name IN VARCHAR2,
+  table_name  IN VARCHAR2
+) RETURN VARCHAR2 IS
+BEGIN
+  RETURN '1=1'; -- Devuelve un predicado básico y siempre verdadero
+END;
+/
+SELECT PLYTIX.VPD_FUNCTION('PLYTIX', 'VM_PRODUCTOS') FROM DUAL;
+SELECT * FROM DBA_POLICIES WHERE OBJECT_OWNER = 'PLYTIX';
+
+--PARA BORRAR LA POLITICA:
+--BEGIN
+--    DBMS_RLS.DROP_POLICY (
+--        object_schema   => 'PLYTIX',   
+--        object_name     => 'USUARIO',  -- Nombre de la tabla o vista
+--        policy_name     => 'POL_USUARIO'  -- Nombre de la política VPD
+--    );
+--END;
+--/
+
+--DESDE SYSTEM:
 CREATE USER ADMIN_PLYTIX IDENTIFIED BY USUARIO 
     DEFAULT TABLESPACE TS_PLYTIX 
     QUOTA 50M ON TS_PLYTIX;
@@ -584,5 +630,5 @@ ALTER TABLE PRODUCTO ADD PUBLICO CHAR(1) DEFAULT 'S';
 
 CREATE OR REPLACE VIEW V_PRODUCTO_PUBLICO AS SELECT * FROM PRODUCTO WHERE PUBLICO = 'S' WITH READ ONLY;
 
-
+SELECT * FROM V_PRODUCTO_PUBLICO;
 
